@@ -12,6 +12,7 @@
 		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 		<script src="contact-viewer.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 	</head>
 
 	<body>
@@ -25,12 +26,44 @@
 		</div>
 		<div data-role="page" id="details-page">
 			<div data-role="header">
-				<a data-role="button" data-rel="back">Back</a>
-				<h1>Details</h1>
+				<a data-role="button" data-rel="back" id="details-back">Back</a>
+				<h1>
+					<span id="new-or-edit"></span>
+					Contact
+				</h1>
 			</div>
 			<div data-role="content">
-				<p id="contact-details"></p>
+				<p id="contact-details">
+					<div>
+						<label>Name</label>
+						<input type="text" data-bind="value: name" />
+					</div>
+					<div>
+						<label>Title</label>
+						<input type="text" data-bind="value: title" />
+					</div>
+					<div>
+						<label>Email</label>
+						<input type="text" data-bind="value: email" />
+					</div>
+					<div>
+						<label>Phone</label>
+						<input type="text" data-bind="value: phone" />
+					</div>
+					<div>
+						<label>Twitter</label>
+						<input type="text" data-bind="value: twitterId" />
+					</div>
+					<div class="row">
+						<button data-icon="check" id="save">Save</button>
+						<button data-icon="delete" id="delete">Delete</button>
+					</div>
+				</p>
 			</div>
+		</div>
+
+		<div data-role="popup" id="popup">
+			<p id="popup-text">x<p>
 		</div>
 	</body>
 </html>
