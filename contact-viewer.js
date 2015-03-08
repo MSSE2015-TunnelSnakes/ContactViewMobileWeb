@@ -66,10 +66,17 @@ $(document).on('click', '#contact-list a, a.new', function() {
 
 // helper function for alerts
 function popAlert(message, delayInMilliseconds) {
-    var delay = delayInMilliseconds != undefined && delayInMilliseconds != null ? delayInMilliseconds : 500;
+    var delay = delayInMilliseconds != undefined && delayInMilliseconds != null ? delayInMilliseconds : 300;
     setTimeout(function(){
         $('#popup-text').html(message);
-        $( "#popup" ).popup('open');
+        $("#popup").popup('open');
+
+        //this closes the popup after a short time unless it is an instant alert (errors)
+        if(delay > 0) {
+            setTimeout(function () {
+                $('#details-back').click();
+            }, 600);
+        }
     }, delay);
 }
 
